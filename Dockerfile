@@ -9,10 +9,10 @@ COPY requirements.txt .
 RUN apk add --no-cache postgresql-client && \
     pip install --no-cache-dir -r requirements.txt
 
-RUN mkdir -p /files/media && \
+RUN mkdir -p /files/media /files/static && \
     adduser -D -H django-user && \
-    chown -R django-user /files/media && \
-    chmod -R 755 /files/media
+    chown -R django-user /files/media /files/static && \
+    chmod -R 755 /files/media /files/static
 
 COPY . .
 
